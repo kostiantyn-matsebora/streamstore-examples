@@ -2,6 +2,8 @@
 
 Following repository contains examples of using [`StreamStore`](https://github.com/kostiantyn-matsebora/streamstore) component with different types of persistence.
 
+![SQLite Example](example.png)
+
 Each type of storage has its own example project, for instance, you can find an example of usage in the [StreamStore.Sql.Example](../src/StreamStore.Sql.Example) project.
 
 Example projects provides a simple console application that demonstrates how to **configure and use** [`StreamStore`] in your application as single storage or multitenancy.
@@ -16,6 +18,8 @@ Example projects provides a simple console application that demonstrates how to 
 For getting all running options simply run the application with `--help` argument.
 
 For configuring application via configuration file, create `appsettings.Development.json` file.
+
+
 
 ## License
 
