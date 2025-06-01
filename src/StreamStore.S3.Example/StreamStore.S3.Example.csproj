@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-StreamStore.S3.Example-d0c455e9-9860-461d-ac86-1ec04de41235</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StreamStore.S3.AWS" Version="0.14.0" />
+    <PackageReference Include="StreamStore.S3.B2" Version="0.15.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StreamStore.ExampleBase\StreamStore.ExampleBase.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+      <SonarQubeSetting Include="sonar.coverage.exclusions">
+        <Value>**</Value>
+      </SonarQubeSetting>
+  </ItemGroup>
+</Project>
