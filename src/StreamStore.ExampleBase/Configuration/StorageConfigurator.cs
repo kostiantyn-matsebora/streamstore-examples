@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Extensions.Hosting;
+using StreamStore.Storage;
 
 namespace StreamStore.ExampleBase.Configuration
 {
@@ -20,9 +21,9 @@ namespace StreamStore.ExampleBase.Configuration
             return this;
         }
 
-        internal void ConfigureStorage(IHostApplicationBuilder hostApplicationBuilder, StoreMode mode)
+        internal void ConfigureStorage(StreamStorageMode mode, IHostApplicationBuilder hostApplicationBuilder)
         {
-            if (mode == StoreMode.Single)
+            if (mode == StreamStorageMode.Single)
             {
                 single!(hostApplicationBuilder);
             }

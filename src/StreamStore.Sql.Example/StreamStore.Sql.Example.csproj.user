@@ -4,6 +4,6 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>SQLite + single tenant</ActiveDebugProfile>
+    <ActiveDebugProfile>PostgreSQL + multitenancy</ActiveDebugProfile>
   </PropertyGroup>
 </Project>

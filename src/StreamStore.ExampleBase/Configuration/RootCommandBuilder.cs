@@ -4,16 +4,17 @@ using System.CommandLine;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using StreamStore.Extensions;
+using StreamStore.Storage;
 
 namespace StreamStore.ExampleBase.Configuration
 {
     [ExcludeFromCodeCoverage]
     class RootCommandBuilder
     {
-        readonly HashSet<string> modes = new HashSet<string>();
+        readonly HashSet<StreamStorageMode> modes = new HashSet<StreamStorageMode>();
         readonly HashSet<string> storages = new HashSet<string>();
 
-        public RootCommandBuilder(params StoreMode[] modes)
+        public RootCommandBuilder(params StreamStorageMode[] modes)
         {
             if (modes != null) Array.ForEach(modes, RegisterMode);
         }
@@ -24,7 +25,7 @@ namespace StreamStore.ExampleBase.Configuration
             return this;
         }
 
-        public RootCommandBuilder AddMode(StoreMode mode)
+        public RootCommandBuilder AddMode(StreamStorageMode mode)
         {
             RegisterMode(mode);
             return this;
@@ -40,7 +41,7 @@ namespace StreamStore.ExampleBase.Configuration
             rootCommand.AddOption(storageOption);
             rootCommand.AddOption(modeOption);
             rootCommand.SetHandler((mode, storage) =>
-                command(new InvocationContext(mode.ToEnum<StoreMode>(), storage)),
+                command(new InvocationContext(mode.ToStorageMode(), storage)),
                 modeOption,
                 storageOption);
 
@@ -63,14 +64,14 @@ namespace StreamStore.ExampleBase.Configuration
             var firstMode = modes.First();
             var modeOption = new Option<string>(
                     name: "--mode",
-                    getDefaultValue: () => firstMode,
+                    getDefaultValue: () => "single",
                     $"Store mode, possible values: {modes.CommaSeparated()}.");
             return modeOption;
         }
 
-        void RegisterMode(StoreMode mode)
+        void RegisterMode(StreamStorageMode mode)
         {
-            modes.Add(mode.ToLowerString());
+            modes.Add(mode);
         }
     }
 }

@@ -21,11 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="StreamStore.Sql.PostgreSql" Version="0.9.0" />
-    <PackageReference Include="StreamStore.Sql.Sqlite" Version="0.10.0" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\submodules\streamstore\src\StreamStore.Sql.PostgreSql\StreamStore.Sql.PostgreSql.csproj" />
+    <ProjectReference Include="..\..\submodules\streamstore\src\StreamStore.Sql.Sqlite\StreamStore.Sql.Sqlite.csproj" />
+    <ProjectReference Include="..\..\submodules\streamstore\src\StreamStore.Sql\StreamStore.Sql.csproj" />
     <ProjectReference Include="..\StreamStore.ExampleBase\StreamStore.ExampleBase.csproj" />
   </ItemGroup>
 

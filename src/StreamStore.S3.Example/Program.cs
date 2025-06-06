@@ -25,18 +25,17 @@ namespace StreamStore.S3.Example
         {
             builder
                 .Services
-                .ConfigureStreamStore(x =>
-                    x.WithSingleStorage(x =>
-                        x.UseAWSStorage()));
+                .AddStreamStore(x =>
+                    x.ConfigureStreamPersistence(c => 
+                        c.AddAmazonS3()));
         }
 
         static void UseB2Storage(IHostApplicationBuilder builder)
         {
-            builder
-                .Services
-                .ConfigureStreamStore(x =>
-                    x.WithSingleStorage(x =>
-                        x.UseB2Storage(builder.Configuration)));
-        }
+			builder
+				.Services
+				.AddStreamStore(x =>
+					x.ConfigureStreamPersistence(c => c.AddB2()));
+		}
     }
 }

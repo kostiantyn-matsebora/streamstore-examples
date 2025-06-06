@@ -1,0 +1,3 @@
+[submodule "submodules/streamstore"]
+	path = submodules/streamstore
+	url = git@github.com:kostiantyn-matsebora/streamstore.git
