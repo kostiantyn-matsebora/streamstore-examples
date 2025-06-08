@@ -20,7 +20,7 @@ namespace StreamStore.ExampleBase.Configuration
 
         public ExampleApplicationConfigurator EnableMultitenancy()
         {
-            commandBuilder.AddMode(StreamStorageMode.Multitenant);
+            commandBuilder.AddMode(StreamStorageMode.Multitenancy);
             return this;
         }
 
@@ -82,7 +82,7 @@ namespace StreamStore.ExampleBase.Configuration
             if (mode == StreamStorageMode.Single)
                 ConfigureSingleMode(builder);
 
-            else if (mode == StreamStorageMode.Multitenant)
+            else if (mode == StreamStorageMode.Multitenancy)
                 ConfigureMultitenancy(builder);
         }
 

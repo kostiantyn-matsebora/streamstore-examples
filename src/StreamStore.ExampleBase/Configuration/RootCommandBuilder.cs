@@ -41,7 +41,7 @@ namespace StreamStore.ExampleBase.Configuration
             rootCommand.AddOption(storageOption);
             rootCommand.AddOption(modeOption);
             rootCommand.SetHandler((mode, storage) =>
-                command(new InvocationContext(mode.ToStorageMode(), storage)),
+                command(new InvocationContext((StreamStorageMode)Enum.Parse(typeof(StreamStorageMode), mode, true), storage)),
                 modeOption,
                 storageOption);
 

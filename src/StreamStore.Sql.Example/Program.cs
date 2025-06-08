@@ -37,7 +37,7 @@ namespace StreamStore.Sql.Example
                 .Services
 				.AddStreamStore(x => 
                     x.EnableAutomaticProvisioning()
-					 .ConfigureStreamPersistence(c =>
+					 .ConfigurePersistence(c =>
                         c.AddSqlite(
                             x => x.WithConnectionString(storage.ConnectionString))));
         }
@@ -51,7 +51,7 @@ namespace StreamStore.Sql.Example
                 .Services
                 .AddStreamStore(x =>
                     x.EnableAutomaticProvisioning()
-                     .ConfigureStreamPersistence(c =>
+                     .ConfigurePersistence(c =>
                         c.AddPostgres(x => x.WithConnectionString(storage.ConnectionString))));
         }
 
@@ -66,7 +66,7 @@ namespace StreamStore.Sql.Example
                 .AddStreamStore(x =>
                     x.EnableAutomaticProvisioning()
                      .EnableMultitenancy(Tenants.Tenant1, Tenants.Tenant2, Tenants.Tenant3)
-                     .ConfigureStreamPersistence(c => 
+                     .ConfigurePersistence(c => 
                             c.AddSqliteWithMultitenancy(x => 
                                     x.WithConnectionString(Tenants.Tenant1, connectionString1)
                                      .WithConnectionString(Tenants.Tenant2, connectionString2)
@@ -83,7 +83,7 @@ namespace StreamStore.Sql.Example
                 .AddStreamStore(x =>
                     x.EnableAutomaticProvisioning()
                      .EnableMultitenancy(Tenants.Tenant1, Tenants.Tenant2, Tenants.Tenant3)
-					 .ConfigureStreamPersistence(c =>
+					 .ConfigurePersistence(c =>
 							 c.AddPostgresWithMultitenancy(x =>
                                     x.WithConnectionString(Tenants.Tenant1, connectionString1)
                                      .WithConnectionString(Tenants.Tenant2, connectionString2)

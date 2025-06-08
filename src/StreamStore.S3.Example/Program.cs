@@ -26,7 +26,7 @@ namespace StreamStore.S3.Example
             builder
                 .Services
                 .AddStreamStore(x =>
-                    x.ConfigureStreamPersistence(c => 
+                    x.ConfigurePersistence(c => 
                         c.AddAmazonS3()));
         }
 
@@ -35,7 +35,7 @@ namespace StreamStore.S3.Example
 			builder
 				.Services
 				.AddStreamStore(x =>
-					x.ConfigureStreamPersistence(c => c.AddB2()));
+					x.ConfigurePersistence(c => c.AddB2()));
 		}
     }
 }

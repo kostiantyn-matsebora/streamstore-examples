@@ -47,7 +47,7 @@ namespace StreamStore.Sql.Example
 				.Services
 				.AddStreamStore(x =>
 					x.EnableAutomaticProvisioning()
-					.ConfigureStreamPersistence(c =>
+					.ConfigurePersistence(c =>
 					   c.AddCassandra(x =>
 						  x.ConfigureCluster(ConfigureCluster)
 						)
@@ -74,7 +74,7 @@ namespace StreamStore.Sql.Example
 				.AddStreamStore(x =>
 					x.EnableAutomaticProvisioning()
 					 .EnableMultitenancy(Tenants.Tenant1, Tenants.Tenant2, Tenants.Tenant3)
-					 .ConfigureStreamPersistence(c =>
+					 .ConfigurePersistence(c =>
 						 c.AddCassandraWithMultitenancy(
 							 storage =>
 								storage.ConfigureCluster(ConfigureCluster),
@@ -95,7 +95,7 @@ namespace StreamStore.Sql.Example
 				.Services
 				.AddStreamStore(x =>
 					x.EnableAutomaticProvisioning()
-					 .ConfigureStreamPersistence(c =>
+					 .ConfigurePersistence(c =>
 							c.AddCassandra(x =>
 								x.UseCosmosDb(appBuilder.Configuration, "StreamStore_CassandraCosmosDb")
 						)
@@ -117,7 +117,7 @@ namespace StreamStore.Sql.Example
 				.AddStreamStore(x =>
 					x.EnableAutomaticProvisioning()
 					 .EnableMultitenancy(Tenants.Tenant1, Tenants.Tenant2, Tenants.Tenant3)
-					 .ConfigureStreamPersistence(c =>
+					 .ConfigurePersistence(c =>
 						 c.AddCassandraWithMultitenancy(
 							 storage =>
 								storage.UseCosmosDb(appBuilder.Configuration, "StreamStore_CassandraCosmosDb"),
