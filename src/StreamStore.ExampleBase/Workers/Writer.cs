@@ -44,11 +44,16 @@ namespace StreamStore.ExampleBase.Workers
             }
             catch (ConcurrencyControlException ex)
             {
-                TrackError(ex);
-                if (token.IsCancellationRequested) return;
+				TrackError(ex);
+				if (token.IsCancellationRequested) return;
             }
-            finally
-            {
+			catch (Exception ex)
+			{
+				TrackError(ex);
+				throw;
+			}
+			finally
+			{
                 try
                 {
                     var metadata = await store.GetMetadataAsync(streamId, token);
@@ -57,7 +62,6 @@ namespace StreamStore.ExampleBase.Workers
                 {
                     TrackError(ex);
                 }
-
             }
         }
 

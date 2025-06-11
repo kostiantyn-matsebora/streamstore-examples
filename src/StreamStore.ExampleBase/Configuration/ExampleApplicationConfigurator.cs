@@ -8,18 +8,19 @@ using Microsoft.Extensions.Logging.Console;
 using StreamStore.ExampleBase.Progress;
 using StreamStore.ExampleBase.Services.Multitenancy;
 using StreamStore.ExampleBase.Services.SingleTenant;
+using StreamStore.Storage;
 
 namespace StreamStore.ExampleBase.Configuration
 {
     [ExcludeFromCodeCoverage]
     public sealed class ExampleApplicationConfigurator
     {
-        readonly RootCommandBuilder commandBuilder = new RootCommandBuilder(StoreMode.Single);
+        readonly RootCommandBuilder commandBuilder = new RootCommandBuilder(StreamStorageMode.Single);
         readonly StorageConfiguratorRegistry configurators = new StorageConfiguratorRegistry();
 
         public ExampleApplicationConfigurator EnableMultitenancy()
         {
-            commandBuilder.AddMode(StoreMode.Multitenancy);
+            commandBuilder.AddMode(StreamStorageMode.Multitenancy);
             return this;
         }
 
@@ -55,7 +56,7 @@ namespace StreamStore.ExampleBase.Configuration
         {
             ConfigureStorage(ctx, builder);
             ConfigureLogging(builder);
-            ConfigureApplication(ctx, builder);
+            ConfigureApplication(ctx.Mode, builder);
         }
 
         static void ConfigureLogging(IHostApplicationBuilder builder)
@@ -73,19 +74,16 @@ namespace StreamStore.ExampleBase.Configuration
         {
             configurators
                 .Get(ctx.Storage)
-                .ConfigureStorage(builder, ctx.Mode);
+                .ConfigureStorage(ctx.Mode, builder);
         }
-        static void ConfigureApplication(InvocationContext ctx, IHostApplicationBuilder builder)
+        static void ConfigureApplication(StreamStorageMode mode, IHostApplicationBuilder builder)
         {
-            switch (ctx.Mode)
-            {
-                case StoreMode.Single:
-                    ConfigureSingleMode(builder);
-                    break;
-                case StoreMode.Multitenancy:
-                    ConfigureMultitenancy(builder);
-                    break;
-            }
+
+            if (mode == StreamStorageMode.Single)
+                ConfigureSingleMode(builder);
+
+            else if (mode == StreamStorageMode.Multitenancy)
+                ConfigureMultitenancy(builder);
         }
 
         static void ConfigureSingleMode(IHostApplicationBuilder builder)

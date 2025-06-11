@@ -4,6 +4,6 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>Cassandra + single tenant</ActiveDebugProfile>
+    <ActiveDebugProfile>Cassandra + multitenancy</ActiveDebugProfile>
   </PropertyGroup>
 </Project>
