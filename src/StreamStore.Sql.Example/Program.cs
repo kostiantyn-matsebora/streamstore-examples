@@ -38,7 +38,7 @@ namespace StreamStore.Sql.Example
 				.AddStreamStore(x => 
                     x.EnableAutomaticProvisioning()
 					 .ConfigurePersistence(c =>
-                        c.AddSqlite(
+                        c.UseSqlite(
                             x => x.WithConnectionString(storage.ConnectionString))));
         }
 
@@ -52,7 +52,7 @@ namespace StreamStore.Sql.Example
                 .AddStreamStore(x =>
                     x.EnableAutomaticProvisioning()
                      .ConfigurePersistence(c =>
-                        c.AddPostgres(x => x.WithConnectionString(storage.ConnectionString))));
+                        c.UsePostgreSql(x => x.WithConnectionString(storage.ConnectionString))));
         }
 
         static void ConfigureSqliteMultitenancy(IHostApplicationBuilder builder)
@@ -67,7 +67,7 @@ namespace StreamStore.Sql.Example
                     x.EnableAutomaticProvisioning()
                      .EnableMultitenancy(Tenants.Tenant1, Tenants.Tenant2, Tenants.Tenant3)
                      .ConfigurePersistence(c => 
-                            c.AddSqliteWithMultitenancy(x => 
+                            c.UseSqliteWithMultitenancy(x => 
                                     x.WithConnectionString(Tenants.Tenant1, connectionString1)
                                      .WithConnectionString(Tenants.Tenant2, connectionString2)
                                      .WithConnectionString(Tenants.Tenant3, connectionString3))));
@@ -84,7 +84,7 @@ namespace StreamStore.Sql.Example
                     x.EnableAutomaticProvisioning()
                      .EnableMultitenancy(Tenants.Tenant1, Tenants.Tenant2, Tenants.Tenant3)
 					 .ConfigurePersistence(c =>
-							 c.AddPostgresWithMultitenancy(x =>
+							 c.UsePostgreSqlWithMultitenancy(x =>
                                     x.WithConnectionString(Tenants.Tenant1, connectionString1)
                                      .WithConnectionString(Tenants.Tenant2, connectionString2)
                                      .WithConnectionString(Tenants.Tenant3, connectionString3))));

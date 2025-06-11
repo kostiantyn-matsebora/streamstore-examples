@@ -27,7 +27,7 @@ namespace StreamStore.S3.Example
                 .Services
                 .AddStreamStore(x =>
                     x.ConfigurePersistence(c => 
-                        c.AddAmazonS3()));
+                        c.UseAmazonS3()));
         }
 
         static void UseB2Storage(IHostApplicationBuilder builder)
@@ -35,7 +35,7 @@ namespace StreamStore.S3.Example
 			builder
 				.Services
 				.AddStreamStore(x =>
-					x.ConfigurePersistence(c => c.AddB2()));
+					x.ConfigurePersistence(c => c.UseB2(configurator => configurator.ReadFromConfig(builder.Configuration))));
 		}
     }
 }

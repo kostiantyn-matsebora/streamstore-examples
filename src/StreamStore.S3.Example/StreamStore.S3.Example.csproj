@@ -8,8 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\submodules\streamstore\src\StreamStore.S3.AWS\StreamStore.S3.AWS.csproj" />
-    <ProjectReference Include="..\..\submodules\streamstore\src\StreamStore.S3.B2\StreamStore.S3.B2.csproj" />
+    <PackageReference Include="StreamStore.S3.AWS" Version="0.18.0" />
+    <PackageReference Include="StreamStore.S3.B2" Version="0.19.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\StreamStore.ExampleBase\StreamStore.ExampleBase.csproj" />
   </ItemGroup>
   <ItemGroup>
