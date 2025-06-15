@@ -8,14 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EventFlow" Version="1.2.1" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.5" />
-    <PackageReference Include="StreamStore.Sql.Sqlite" Version="0.14.0" />
-    <PackageReference Include="StreamStore.Storage.EventFlow" Version="0.1.0" />
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NewFolder\" />
+    <PackageReference Include="EventFlow" Version="1.2.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.5" />
+    <PackageReference Include="StreamStore.NoSql.Cassandra" Version="0.12.0" />
+    <PackageReference Include="StreamStore.Sql.Sqlite" Version="0.14.0" />
+    <PackageReference Include="StreamStore.Storage.EventFlow" Version="0.1.0" />
   </ItemGroup>
 
 </Project>

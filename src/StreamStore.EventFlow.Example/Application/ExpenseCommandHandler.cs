@@ -4,14 +4,14 @@ using EventFlow.Commands;
 
 namespace StreamStore.EventFlow.Example
 {
-	public class AddNumberCommandHandler : CommandHandler<SumAggregate, SumId, IExecutionResult, AddNumberCommand>
+	public class ExpenseCommandHandler : CommandHandler<BankAccountAggregate, AccountId, IExecutionResult, ExpenseCommand>
 	{
 		public override Task<IExecutionResult> ExecuteCommandAsync(
-			SumAggregate aggregate,
-			AddNumberCommand command,
+			BankAccountAggregate aggregate,
+			ExpenseCommand command,
 			CancellationToken cancellationToken)
 		{
-			var executionResult = aggregate.AddNumber(command.Number);
+			var executionResult = aggregate.Expense(command.Amount);
 			return Task.FromResult(executionResult);
 		}
 	}
