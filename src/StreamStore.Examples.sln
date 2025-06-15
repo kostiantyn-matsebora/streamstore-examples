@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36119.2 d17.14
+VisualStudioVersion = 17.14.36119.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamStore.ExampleBase", "StreamStore.ExampleBase\StreamStore.ExampleBase.csproj", "{D7415804-7B06-A789-D7A5-A8EDB56D605A}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamStore.NoSql.Example", "StreamStore.NoSql.Example\StreamStore.NoSql.Example.csproj", "{A85AA932-AA7B-321A-2634-9A8C9F6A5CD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamStore.S3.Example", "StreamStore.S3.Example\StreamStore.S3.Example.csproj", "{BCF519CE-E4D1-1FFF-7797-9C20253B504D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamStore.EventFlow.Example", "StreamStore.EventFlow.Example\StreamStore.EventFlow.Example.csproj", "{B24D62CE-7796-4AEB-938B-FCF3A636B1B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BCF519CE-E4D1-1FFF-7797-9C20253B504D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCF519CE-E4D1-1FFF-7797-9C20253B504D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCF519CE-E4D1-1FFF-7797-9C20253B504D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24D62CE-7796-4AEB-938B-FCF3A636B1B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24D62CE-7796-4AEB-938B-FCF3A636B1B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24D62CE-7796-4AEB-938B-FCF3A636B1B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24D62CE-7796-4AEB-938B-FCF3A636B1B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
